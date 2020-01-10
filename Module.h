@@ -52,73 +52,12 @@ static inline bool zero() { return false; }
 /******************************************************************
  *                      T Y P E D E F S                           *
  ******************************************************************/
-/*
-typedef enum e_clkTimes
-{
-    ONEHZ = 0,
-    TENHZ,
-    FIFTYHZ,
-    HUNDHZ,
-    UDEFHZ,
-    NUM_CLK
-} clkTimes_E;
 
-typedef struct s_clkActivation
-{
-    bool oneHz;
-    bool tenHz;
-    bool fiftyHz;
-    bool hunHz;
-    bool undefHz;
-} clkActivation_S;
-*/
 typedef struct s_moduleDesc
 {
-    /*
-    //void (*moduleInit)(void);       // initialize the module
-    void (*periodic1Hz_CLK)(void);    // 1Hz periodic processing in CLK 
-    void (*periodic10Hz_CLK)(void);   // 1Hz periodic processing in CLK
-    void (*periodic20Hz_CLK)(void);   // 10Hz periodic processing in CLK
-    void (*periodic50Hz_CLK)(void);   // 50Hz periodic processing in CLK
-    void (*periodic100Hz_CLK)(void);  // 100Hz periodic processing in CLK
-    void (*periodic200Hz_CLK)(void);  // 100Hz periodic processing in CLK
-    void (*periodicXHz_CLK)(void);    // Not-defined periodic processing in CLK
-    //void (*moduleReset)(void);      // reset module variable and states
-    clkTimes_E source_clk;
-    */
     void (*periodicX1_CLK)(void);    // Not-defined periodic processing in CLK
 } moduleDesc_S;
 
 
 #endif
 
-/* Functions in .ino file
-static void print_100Hz(void) {
-    Serial.println("Hello");
-}
-
-static void fn(void) {
-
-}
-
-const moduleDesc_S prints = {
-    &fn,			// 1Hz   CLK function
-    &fn,			// 10Hz  CLK function,			// 20Hz  CLK function
-    //nullptr,		    // 50Hz  CLK function
-    &print_100Hz,
-    NULL,		// 100Hz CLK function
-    &fn,            // 200Hz CLK function
-    &fn,
-    &fn
-};
-const moduleDesc_S prints2 = {
-    &fn,			// 1Hz   CLK function
-    & fn,			// 10Hz  CLK function,			// 20Hz  CLK function
-    //nullptr,		    // 50Hz  CLK function
-    & print_100Hz,
-    &print_100Hz,		// 100Hz CLK function
-    & fn,            // 200Hz CLK function
-    & fn,
-    & fn
-};
-*/

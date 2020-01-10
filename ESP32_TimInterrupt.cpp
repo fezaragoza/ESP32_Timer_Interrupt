@@ -3,17 +3,6 @@
 #include "Module.h"
 #include <FunctionalInterrupt.h>
 
-//void (*timer_handler)(void) = NULL;
-/*
-static const clkActivation_S availableCLK[NUM_CLK] = {
-	{ true , false, false, false, false },
-	{ true , true , false, false, false },
-	{ true , true , true , false, false },
-	{ true , true , true , true , false },
-	{ false, false, false, false, true  }
-};
-*/
-
 Timer::Timer()
 {
 	_ledc_timer;
@@ -43,7 +32,6 @@ void Timer::interruptInit(uint8_t timer_num, uint32_t sampling_time)
 	timerFuncAttachInterrupt(_timer, std::bind(&Timer::handle, this), true);
 	timerAlarmWrite(_timer, sampling_time, true);
 	timerAlarmEnable(_timer);
-	//checkClockActivation();
 }
 
 void Timer::enable(void) {
@@ -72,34 +60,6 @@ bool Timer::checkTimer(void)
 	}
 }
 
-/*
-clkTimes_E Timer::checkClockActivation(void)
-{
-	/* Sampling time in us (miceoseconds) //
-	switch (_sampling_time)
-	{
-	case 10000:
-
-		break;
-	case 20000:
-
-		break;
-	case 50000:
-
-		break;
-	case 100000:
-
-		break;
-	case 1000000:
-
-		break;
-	default:
-
-		break;
-	}
-
-}
-*/
 void Timer::modulesInit(uint8_t count_modules, const moduleDesc_S modules[])
 {
 	_modules = modules;						///< @comment "The arg: modules[] is a pointer if only declared without * operator in the method arg, and without passing as reference in the .ino file."

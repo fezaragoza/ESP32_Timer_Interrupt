@@ -73,7 +73,6 @@ public:
 	void interruptInit(uint8_t timer_num, uint32_t sampling_time);
 	void enable(void);
 	void disable(void);
-	//clkTimes_E checkClockActivation(void);
 	void modulesInit(uint8_t count_modules, const moduleDesc_S modules[]);
 	void runModules(void);
 	bool checkTimer(void);
@@ -86,11 +85,6 @@ private:
 	uint32_t			_sampling_time;
 	const moduleDesc_S*	_modules;
 	uint8_t				_count_modules;
-	//clkActivation_S     _clk_active;
 };
 
 #endif
-
-/**
-* There are two options, leaving the private 
-*/
