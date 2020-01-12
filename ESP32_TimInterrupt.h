@@ -17,9 +17,9 @@
 /******************************************************************
  *                         D E F I N E S                          *
  ******************************************************************/
-/* Fixed sampling times definitions */
+/* Fixed sampling times definitions (Value in us - microseconds) */
 #define MS1000			1000000
-#define MS100			100000						// 100ms, value in us.
+#define MS100			100000	
 #define MS50			50000
 #define MS20			20000
 #define MS10			10000
@@ -28,7 +28,7 @@
 #define MSTIMESAMPLING (SAMPLINGTIME * 0.001F)
 #define TIMECONVERSION (MSTIMESAMPLING * MS2MIN)
 /* Timer config options for PWM generation */
-#define ledPin			16					// 16 corresponds to GPIO16
+#define ledPin			16					// NOTE: 16 corresponds to GPIO16
 #define frequen			5000				// 5kHz
 #define ledChannel		0					// 0 to 15 (16 channels in total)
 #define BIT_RESOL		8					// 1 to 16 bits - 8 means from 0 to 255
